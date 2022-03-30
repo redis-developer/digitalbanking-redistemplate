@@ -131,7 +131,8 @@ java -jar target/redis-0.0.1-SNAPSHOT.jar
 ```
 
 Shows a benchmark test run of  generateData.sh on GCP servers.  Although, this test run is using redisearch 1.0 code base.  Need to rerun this test.
-<a href="" rel="Generate Data Benchmark"><img src="images/Benchmark.png" alt="" /></a>
+
+![image2](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/images/Benchmark.png)
 
 4.  Investigate the APIs in ./scripts.  Adding the redisearch queries behind each script here also...
   * addTag.sh - add a tag to a transaction.  Tags allow user to mark  transactions to be in a buckets such as Travel or Food for budgetary tracking purposes
