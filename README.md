@@ -61,15 +61,28 @@ The java code demonstrates common API actions with the data layer in REDIS.  The
 ### Data Structures in use
 <a href="" rel="Tables Structures Used"><img src="images/Tables.png" alt="" /></a>
 
-## Getting Started using Docker desktop
-1. Prepare Docker environment-see the Prerequisites section above...
-2. Pull this github into a directory
+## Getting Started using Docker Desktop
+
+## Prerequisites
+
+- Install Docker Desktop for Mac/Windows
+
+
+## Cloning the repository
+
+
 ```bash
-git clone https://github.com/jphaugla/Redisearch-Digital-Banking.git
+ git clone https://github.com/redis-developer/digitalbanking-redistemplate
 ```
+
 3. Refer to the notes for redis Docker images used but don't get too bogged down as docker compose handles everything except for a few admin steps on tomcat.
  * [Redis stack docker instructions](https://redis.io/docs/stack/get-started/install/docker/)
-4. Open terminal and change to the github home where you will see the docker-compose.yml file, then: 
+ 
+
+## Bring up the microservices
+
+Open terminal and change to the github home where you will see the docker-compose.yml file, then: 
+
 ```bash
 docker-compose up -d
 ```
