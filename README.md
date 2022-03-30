@@ -3,7 +3,8 @@
 
 Provides a quick-start example of using Redis with springBoot with Banking structures.  Digital Banking uses an API microservices approach to enable high speed requests for account, customer and transaction information.  As seen below, this data is useful for a variety of business purposes in the bank.
 
-<a href="" rel="Digital Banking"><img src="images/DigitalBanking.png" alt="" /></a>
+
+![image2](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/images/DigitalBanking.png)
 
 
 ### Note:  This is the same as Redisearch-Digital-Banking but uses redistemplate instead of any of the crudrepository indexes.  redisearch 2.0 indexes will be used.  This is not using the crudrepository for the basic redis data. 
