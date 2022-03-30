@@ -1,7 +1,10 @@
-# Redisearch-Digital-Banking-redistemplate
+# Digital Banking Demo app using RedisTemplate and RediSearch
+
 
 Provides a quick-start example of using Redis with springBoot with Banking structures.  Digital Banking uses an API microservices approach to enable high speed requests for account, customer and transaction information.  As seen below, this data is useful for a variety of business purposes in the bank.
+
 <a href="" rel="Digital Banking"><img src="images/DigitalBanking.png" alt="" /></a>
+
 
 ### Note:  This is the same as Redisearch-Digital-Banking but uses redistemplate instead of any of the crudrepository indexes.  redisearch 2.0 indexes will be used.  This is not using the crudrepository for the basic redis data. 
 
@@ -25,12 +28,12 @@ In this tutorial, a java spring boot application is run through a jar file to su
 ## Links that help!
 
  * [Redis Stack](https://redis.com/blog/introducing-redis-stack/)
- * [Redis Search](https://redis.io/docs/stack/search/)
- * [Redis Insight](https://redis.io/docs/stack/insight/)
- * [spring data for redis github](https://github.com/spring-projects/spring-data-examples/tree/master/redis/repositories)
- * [spring data for redis sample code](https://www.oodlestechnologies.com/blogs/Using-Redis-with-CrudRepository-in-Spring-Boot/)
- * [lettuce tips redis spring boot](https://www.bytepitch.com/blog/redis-integration-spring-boot/)
- * [spring data Reference in domain](https://github.com/spring-projects/spring-data-examples/blob/master/redis/repositories/src/main/java/example/springdata/redis/repositories/Person.java)
+ * [RediSearch](https://redis.io/docs/stack/search/)
+ * [RedisInsight](https://redis.io/docs/stack/insight/)
+ * [Spring data for Redis GitHub](https://github.com/spring-projects/spring-data-examples/tree/master/redis/repositories)
+ * [Spring data for Redis sample code](https://www.oodlestechnologies.com/blogs/Using-Redis-with-CrudRepository-in-Spring-Boot/)
+ * [Lettuce tips Redis Spring boot](https://www.bytepitch.com/blog/redis-integration-spring-boot/)
+ * [Spring data Reference in domain](https://github.com/spring-projects/spring-data-examples/blob/master/redis/repositories/src/main/java/example/springdata/redis/repositories/Person.java)
  * [spring data reference test code](https://github.com/spring-projects/spring-data-examples/blob/master/redis/repositories/src/test/java/example/springdata/redis/repositories/PersonRepositoryTests.java)
  * [spring async tips](https://dzone.com/articles/effective-advice-on-spring-async-part-1)
  * [brewdis sample application](https://github.com/redis-developer/brewdis)
