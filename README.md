@@ -82,7 +82,7 @@ The java code demonstrates common API actions with the data layer in REDIS.  The
  git clone https://github.com/redis-developer/digitalbanking-redistemplate
 ```
 
-3. Refer to the notes for redis Docker images used but don't get too bogged down as docker compose handles everything except for a few admin steps on tomcat.
+3. Refer to the notes for Redis Docker images used but don't get too bogged down as docker compose handles everything except for a few admin steps on tomcat.
  * [Redis Stack docker instructions](https://redis.io/docs/stack/get-started/install/docker/)
  
 
@@ -94,7 +94,7 @@ Open terminal and change to the github home where you will see the docker-compos
 docker-compose up -d
 ```
 
-## Getting Started without Docker on ubuntu
+## Getting Started without Docker on Ubuntu OS
 
 ### 1. Install Maven and Java
 
