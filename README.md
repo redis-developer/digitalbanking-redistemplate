@@ -1,4 +1,4 @@
-# Digital Banking Demo app using RedisTemplate and RediSearch
+# Digital Banking Demo app using Spring Boot, RedisTemplate and RediSearch 2.0
 
 
 Provides a quick-start example of using Redis with springBoot with Banking structures.  Digital Banking uses an API microservices approach to enable high speed requests for account, customer and transaction information.  As seen below, this data is useful for a variety of business purposes in the bank.
@@ -10,7 +10,7 @@ Provides a quick-start example of using Redis with springBoot with Banking struc
 
 ## Overview
 
-In this tutorial, a java spring boot application is run through a jar file to support typical API calls to a REDIS banking data layer.  A redis docker configuration is included.
+In this tutorial, a java spring boot application is run through a jar file to support typical API calls to a REDIS banking data layer.  A Redis Docker configuration is included.
 
 ## Redis Advantages for Digital Banking
  
