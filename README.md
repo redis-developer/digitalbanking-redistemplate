@@ -67,7 +67,7 @@ The java code demonstrates common API actions with the data layer in REDIS.  The
 
 ### Data Structures in use
 
-<a href="" rel="Tables Structures Used"><img src="images/Tables.png" alt="" /></a>
+![image4](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/images/Tables.png)
 
 ## Getting Started using Docker Desktop
 
