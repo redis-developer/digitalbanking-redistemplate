@@ -30,8 +30,8 @@ In this tutorial, a java spring boot application is run through a jar file to su
 * Alternatively, can run Redis Enterprise and set the redis host and port in the application.properties file
 * When using Docker for Mac or Docker for Windows, the default resources allocated to the linux VM running docker are 2GB RAM and 2 CPU's. Make sure to adjust these resources to meet the resource requirements for the containers you will be running. More information can be found here on adjusting the resources allocated to docker.
 
-- [Docker for mac](https://docs.docker.com/docker-for-mac/#advanced)
-- [Docker for windows](https://docs.docker.com/docker-for-windows/#advanced)
+- [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/#advanced)
+- [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/#advanced)
 
 ## Links that help!
 
