@@ -1,5 +1,7 @@
 # A Simple Digital Banking app 
 
+![image112](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/digitalbanking.png)
+
 
 Provides a quick-start example of using Redis with springBoot with Banking structures.  Digital Banking uses an API microservices approach to enable high speed requests for account, customer and transaction information.  As seen below, this data is useful for a variety of business purposes in the bank.
 
