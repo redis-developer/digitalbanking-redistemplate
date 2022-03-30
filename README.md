@@ -9,21 +9,24 @@ Provides a quick-start example of using Redis with springBoot with Banking struc
 ### Note:  This is the same as Redisearch-Digital-Banking but uses redistemplate instead of any of the crudrepository indexes.  redisearch 2.0 indexes will be used.  This is not using the crudrepository for the basic redis data. 
 
 ## Overview
+
 In this tutorial, a java spring boot application is run through a jar file to support typical API calls to a REDIS banking data layer.  A redis docker configuration is included.
 
 ## Redis Advantages for Digital Banking
+ 
  * Redis easily handles high write transaction volume
  * Redis has no tombstone issues and can upsert posted transactions over pending
  * Redis Enterprise scales vertically (large nodes)  and horizontally (many nodes)
  * Redisearch 2.0 automatically indexes the hash structure created by Spring Java CRUD repository
 
 ## Requirements
+
 * Docker installed on your local system, see [Docker Installation Instructions](https://docs.docker.com/engine/installation/).
 * Alternatively, can run Redis Enterprise and set the redis host and port in the application.properties file
 * When using Docker for Mac or Docker for Windows, the default resources allocated to the linux VM running docker are 2GB RAM and 2 CPU's. Make sure to adjust these resources to meet the resource requirements for the containers you will be running. More information can be found here on adjusting the resources allocated to docker.
 
-[Docker for mac](https://docs.docker.com/docker-for-mac/#advanced)
-[Docker for windows](https://docs.docker.com/docker-for-windows/#advanced)
+- [Docker for mac](https://docs.docker.com/docker-for-mac/#advanced)
+- [Docker for windows](https://docs.docker.com/docker-for-windows/#advanced)
 
 ## Links that help!
 
@@ -42,11 +45,14 @@ In this tutorial, a java spring boot application is run through a jar file to su
 
 ## Technical Overview
 
-This github java code uses the mesclun library for redis modules.  The mesclun library supports RediSearch, RedisGears, and RedisTimeSeries.  The original github only used spring java without redisearch.  That repository is still intact at [this github location](https://github.com/jphaugla/Redis-Digital-Banking).  Another subsequent version uses crud repository and search at [this github location](https://github.com/jphaugla/Redisearch-Digital-Banking)
-All of the Spring Java indexes have been removed in this version.  All the crud repository will also be removed in this when it is complete.
+This GitHub Java code uses the "mesclun" library for Redis modules.  The mesclun library supports RediSearch, RedisGears and RedisTimeSeries.  The original GitHub only used Spring Java without RediSearch.  The repository is still intact at [this Github location](https://github.com/jphaugla/Redis-Digital-Banking).  Another subsequent version uses crud repository and search at [this github location](https://github.com/jphaugla/Redisearch-Digital-Banking)
+All of the Spring Java indexes have been removed in this version.  All the CRUD repository will also be removed in this when it is complete.
 Can also use TLS with Spring Boot java lettuce.  Steps are near bottom.
+
 ### The spring java code
+
 This is basic spring links
+
 * [Spring Redis](https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis.repositories.indexes) 
 * *boot*-Contains index creation for each of the four redisearch indexes used in this solution:  Account, Customer, Merchant, and Transaction
 * *config*-Initial configuration module using autoconfiguration and a threadpool sizing to adjust based on machine size
@@ -59,6 +65,7 @@ This is basic spring links
 The java code demonstrates common API actions with the data layer in REDIS.  The java spring Boot framework minimizes the amount of code to build and maintain this solution.  Maven is used to build the java code and the code is deployed to the tomcat server.
 
 ### Data Structures in use
+
 <a href="" rel="Tables Structures Used"><img src="images/Tables.png" alt="" /></a>
 
 ## Getting Started using Docker Desktop
@@ -76,7 +83,7 @@ The java code demonstrates common API actions with the data layer in REDIS.  The
 ```
 
 3. Refer to the notes for redis Docker images used but don't get too bogged down as docker compose handles everything except for a few admin steps on tomcat.
- * [Redis stack docker instructions](https://redis.io/docs/stack/get-started/install/docker/)
+ * [Redis Stack docker instructions](https://redis.io/docs/stack/get-started/install/docker/)
  
 
 ## Bring up the microservices
@@ -89,31 +96,39 @@ docker-compose up -d
 
 ## Getting Started without Docker on ubuntu
 
-1. Install maven and java
+### 1. Install Maven and Java
+
 ```bash
 sudo apt-get install maven
 sudo apt-get install default-jdk
 ```
-1. Pull this github into a directory
+
+### 2. Clone the Repository
+
 ```bash
 git clone https://github.com/jphaugla/Redisearch-Digital-Banking.git
 ```
+
 1. edit ./src/main/resources/application.properties to change the redis host and the redis port number 
 
-## Execute sample application 
+###  3. Execute the Sample application 
 
 1. Compile the code
+
 ```bash
 mvn package
 ```
-2.  run the jar file.   
+2.  Run the JAR file.   
+
 ```bash
 java -jar target/redis-0.0.1-SNAPSHOT.jar
 ```
 3.  Test the application from a separate terminal window.  This script uses an API call to generate sample banking customers, accounts and transactions.  It uses Spring ASYNC techniques to generate higher load.  A flag chooses between running the transactions pipelined in Redis or in normal non-pipelined method.
+
 ```bash
 ./scripts/generateData.sh
 ```
+
 Shows a benchmark test run of  generateData.sh on GCP servers.  Although, this test run is using redisearch 1.0 code base.  Need to rerun this test.
 <a href="" rel="Generate Data Benchmark"><img src="images/Benchmark.png" alt="" /></a>
 
@@ -154,6 +169,7 @@ Additional note, instead of using stunnel for testing redis-cli, see command aft
 
 
 * Change environment variables for subsequent scripts
+
 ```bash
 export KEYSTORE_PASSWORD=sillyPassword
 export TRUSTSTORE_PASSWORD=sillyPassword
@@ -161,6 +177,7 @@ export TRUSTSTORE_PASSWORD=sillyPassword
 
 * generate required keys
     *  copy in proxy certificate into same ssl folder and name it proxy_cert.pem
+
 ```bash
 cd src/main/resources/ssl
 ./generatepems.sh
@@ -169,12 +186,14 @@ cd src/main/resources/ssl
 ./generatetrust.sh
 ./importkey.sh
 ```
+
 ```bash
 redis-cli -u $REDIS_CONNECTION --tls --cacert src/main/resources/ssl/proxy_cert.pem --cert src/main/resources/ssl/client_cert_app_001.pem --key  src/main/resources/ssl/client_key_app_001.pem -a $REDIS_PASSWORD
 ```
 
 * Turn SSL on for the application.  (Two different ways)  in both ways, must set spring.redis.ssl to true
   * Can change src/main/resources/application.properties to add the key and trust store parameters
+
 ```bash
 spring.redis.ssl=true
 server.ssl.key-store=./src/main/resources/ssl/client-keystore.p12
@@ -182,11 +201,14 @@ server.ssl.key-store-password=${KEYSTORE_PASSWORD}
 server.ssl.trust-store=./src/main/resources/ssl/client-truststore.p12
 server.ssl.trust-store-password=${TRUSTSTORE_PASSWORD}
 ```
-or can change the runtime (sample script included)
-```bash
 
+or can change the runtime (sample script included)
+
+```bash
 ```
+
 * package and run application
+
 ```bash
 mvn clean package
 java -jar  target/redis-0.0.1-SNAPSHOT.jar
@@ -195,6 +217,7 @@ java -jar  target/redis-0.0.1-SNAPSHOT.jar
 WARNING:  This causes  TLS to be turned on for the application which causes the following chages:
 * port changes from 8080 to 8443
 * must disable the failure on non-certified key in each of the scripts. This format works:
+
 ```bash
 *curl --insecure -I 
 ```
