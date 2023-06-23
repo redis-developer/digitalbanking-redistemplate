@@ -1,8 +1,8 @@
 {
-  "app_name": "Digital Banking using RedisTemplate and RediSearch 2.0",
-  "description": "A Digital Banking application built using RedisTemplate and RediSearch 2.0",
+  "app_name": "Digital Banking using RedisTemplate and Redis Search",
+  "description": "A Digital Banking application built using RedisTemplate and Redis Search",
   "type": "Building Block",
-  "contributed_by": "Redis Labs",
+  "contributed_by": "Redis",
   "repo_url": "https://github.com/redis-developer/digitalbanking-redistemplate",
   "preview_image_url": "https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/app_preview_image.png",
   "download_url": "https://github.com/redis-developer/digitalbanking-redistemplate/archive/refs/heads/master.zip",
@@ -20,11 +20,11 @@
     "EXPIRE",
     "LRANGE"
   ],
-  "redis_features": [
+  "redis_use_cases": [
     "Caching"
   ],
-  "redis_modules": [
-     "RediSearch"
+  "redis_features": [
+     "Search and Query"
   ],
   "app_image_urls": [],
   "youtube_url": "",
