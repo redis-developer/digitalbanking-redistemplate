@@ -1,4 +1,4 @@
-# A Simple Digital Banking app 
+# A Simple Digital Banking app
 
 ![image112](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/digitalbanking.png)
 
@@ -9,20 +9,20 @@ Provides a quick-start example of using Redis with springBoot with Banking struc
 ![image112](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/images/DigitalBanking.png)
 
 
-### Note: 
+### Note:
 
-This is the same as Redisearch-Digital-Banking but uses redistemplate instead of any of the crudrepository indexes.  redisearch 2.0 indexes will be used.  This is not using the crudrepository for the basic redis data. 
+This is the same as Redisearch-Digital-Banking but uses redistemplate instead of any of the crudrepository indexes. Redis Search2.0 indexes will be used.  This is not using the crudrepository for the basic redis data.
 
 ## Overview
 
 In this tutorial, a java spring boot application is run through a jar file to support typical API calls to a REDIS banking data layer.  A Redis Docker configuration is included.
 
 ## Redis Advantages for Digital Banking
- 
+
  * Redis easily handles high write transaction volume
  * Redis has no tombstone issues and can upsert posted transactions over pending
  * Redis Enterprise scales vertically (large nodes)  and horizontally (many nodes)
- * Redisearch 2.0 automatically indexes the hash structure created by Spring Java CRUD repository
+ *Redis Search2.0 automatically indexes the hash structure created by Spring Java CRUD repository
 
 ## Requirements
 
@@ -36,7 +36,7 @@ In this tutorial, a java spring boot application is run through a jar file to su
 ## Links that help!
 
  * [Redis Stack](https://redis.com/blog/introducing-redis-stack/)
- * [RediSearch](https://redis.io/docs/stack/search/)
+ * [Redis Search](https://redis.io/docs/stack/search/)
  * [RedisInsight](https://redis.io/docs/stack/insight/)
  * [Spring data for Redis GitHub](https://github.com/spring-projects/spring-data-examples/tree/master/redis/repositories)
  * [Spring data for Redis sample code](https://www.oodlestechnologies.com/blogs/Using-Redis-with-CrudRepository-in-Spring-Boot/)
@@ -50,7 +50,7 @@ In this tutorial, a java spring boot application is run through a jar file to su
 
 ## Technical Overview
 
-This GitHub Java code uses the "mesclun" library for Redis modules.  The mesclun library supports RediSearch, RedisGears and RedisTimeSeries.  The original GitHub only used Spring Java without RediSearch.  The repository is still intact at [this Github location](https://github.com/jphaugla/Redis-Digital-Banking).  Another subsequent version uses crud repository and search at [this github location](https://github.com/jphaugla/Redisearch-Digital-Banking)
+This GitHub Java code uses the "mesclun" library for Redis modules.  The mesclun library supports Redis Search, RedisGears andRedis Time Series.  The original GitHub only used Spring Java without Redis Search.  The repository is still intact at [this Github location](https://github.com/jphaugla/Redis-Digital-Banking).  Another subsequent version uses crud repository and search at [this github location](https://github.com/jphaugla/Redisearch-Digital-Banking)
 
 All of the Spring Java indexes have been removed in this version.  All the CRUD repository will also be removed in this when it is complete.
 Can also use TLS with Spring Boot java lettuce.  Steps are near bottom.
@@ -59,16 +59,16 @@ Can also use TLS with Spring Boot java lettuce.  Steps are near bottom.
 
 This is basic spring links
 
-* [Spring Redis](https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis.repositories.indexes) 
-* *boot*-Contains index creation for each of the four redisearch indexes used in this solution:  Account, Customer, Merchant, and Transaction
+* [Spring Redis](https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis.repositories.indexes)
+* *boot*-Contains index creation for each of the fourRedis Searchindexes used in this solution:  Account, Customer, Merchant, and Transaction
 * *config*-Initial configuration module using autoconfiguration and a threadpool sizing to adjust based on machine size
 * *controller*-http API call interfaces
 * *data*-code to generate POC type of customer, account, and transaction code
 * *domain*-has each of the java objects with their columns.  Enables all the getter/setter methods
-* *repository*-has CRUD repository definitions.  With transition to redisearch 2.0, not used as heavily as previously.  This is where the redistemplate code is added if crud repository is no longer used.
+* *repository*-has CRUD repository definitions.  With transition toRedis Search2.0, not used as heavily as previously.  This is where the redistemplate code is added if crud repository is no longer used.
 * *service*-asyncservice and bankservice doing the interaction with redis
 
-### 
+###
 The java code demonstrates common API actions with the data layer in REDIS.  The java spring Boot framework minimizes the amount of code to build and maintain this solution.  Maven is used to build the java code and the code is deployed to the tomcat server.
 
 ### Data Structures in use
@@ -92,11 +92,11 @@ The java code demonstrates common API actions with the data layer in REDIS.  The
 3. Refer to the notes for Redis Docker images used but don't get too bogged down as docker compose handles everything except for a few admin steps on tomcat.
 
  * [Redis Stack docker instructions](https://redis.io/docs/stack/get-started/install/docker/)
- 
+
 
 ## Bring up the microservices
 
-Open terminal and change to the github home where you will see the docker-compose.yml file, then: 
+Open terminal and change to the github home where you will see the docker-compose.yml file, then:
 
 ```bash
 docker-compose up -d
@@ -117,16 +117,16 @@ sudo apt-get install default-jdk
 git clone https://github.com/jphaugla/Redisearch-Digital-Banking.git
 ```
 
-1. Edit ./src/main/resources/application.properties to change the redis host and the redis port number 
+1. Edit ./src/main/resources/application.properties to change the redis host and the redis port number
 
-###  3. Execute the Sample application 
+###  3. Execute the Sample application
 
 1. Compile the code
 
 ```bash
 mvn package
 ```
-2.  Run the JAR file.   
+2.  Run the JAR file.
 
 ```bash
 java -jar target/redis-0.0.1-SNAPSHOT.jar
@@ -137,11 +137,11 @@ java -jar target/redis-0.0.1-SNAPSHOT.jar
 ./scripts/generateData.sh
 ```
 
-Shows a benchmark test run of  generateData.sh on GCP servers.  Although, this test run is using redisearch 1.0 code base.  Need to rerun this test.
+Shows a benchmark test run of  generateData.sh on GCP servers.  Although, this test run is usingRedis Search1.0 code base.  Need to rerun this test.
 
 ![image2](https://raw.githubusercontent.com/redis-developer/digitalbanking-redistemplate/master/images/Benchmark.png)
 
-4.  Investigate the APIs in ./scripts.  Adding the redisearch queries behind each script here also...
+4.  Investigate the APIs in ./scripts.  Adding theRedis Searchqueries behind each script here also...
   * addTag.sh - add a tag to a transaction.  Tags allow user to mark  transactions to be in a buckets such as Travel or Food for budgetary tracking purposes
   * deleteCustomer.sh - delete all customers matching a string
   * generateData.sh - simple API to generate default customer, accounts, merchants, phone numbers, emails and transactions
@@ -227,5 +227,5 @@ WARNING:  This causes  TLS to be turned on for the application which causes the 
 * must disable the failure on non-certified key in each of the scripts. This format works:
 
 ```bash
-curl --insecure -I 
+curl --insecure -I
 ```
